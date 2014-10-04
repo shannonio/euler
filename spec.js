@@ -5,23 +5,42 @@ var _ = require('underscore');
 var rosie = require('rosie');
 
 /* Problems */
+var two = require('./problem-2.js');
 var seven = require('./problem-7.js');
 var eight = require('./problem-8.js');
 
 /* Specs */
 
+/* 2 */
+describe('Problem 2', function() {
+
+  it('should generate the fibonacci sequence', function() {
+    expect(two.generateFib(10)).to.deep.equal([1,2,3,5,8]);
+  });
+
+  it('should generate the fibonacci sequence with a limit', function() {
+    expect(two.generateFib(100)).to.deep.equal([1,2,3,5,8,13,21,34,55,89]);
+  });
+
+  it('should generate the sum of the even fibonacci numbers', function() {
+    expect(two.sumOfFibonacci(4000000)).to.deep.equal(4613732);
+  });
+
+});
+
 /* 7 */
 describe('Problem 7', function() {
 
-  it('should work', function() {
+  it('should find the 10001st prime number', function() {
     assert.equal(seven.findPrime(10001), 104743);
   });
 
-  it('should be catch all prime numbers', function() {
+  it('should be able to catch all prime numbers', function() {
     assert.equal(seven.isPrime(2), true);
     assert.equal(seven.isPrime(3), true);
     assert.equal(seven.isPrime(5), true);
     assert.equal(seven.isPrime(7), true);
+    assert.equal(seven.isPrime(10), false);
     assert.equal(seven.isPrime(11), true);
     assert.equal(seven.isPrime(13), true);
   });
