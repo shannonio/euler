@@ -8,6 +8,8 @@ var rosie = require('rosie');
 var two = require('./problem-2.js');
 var seven = require('./problem-7.js');
 var eight = require('./problem-8.js');
+var pascals = require('./pascals-triangle.js');
+var maxDiff = require('./max-diff.js');
 
 /* Specs */
 
@@ -56,4 +58,69 @@ describe('Problem 8', function() {
     assert.equal(eight.greatestProduct(num), Infinity);
   });
 
+});
+
+/* Pascals Triangle */
+
+describe('Pascals Triangle', function() {
+
+  it('should find out N lines of pascals triangle', function() {
+    var fourLinesOfTriangle = [
+      [1],
+      [1,1],
+      [1,2,1],
+      [1,3,3,1],
+      [1,4,6,4,1]
+    ];
+
+    assert.deepEqual(pascals.findTriangle(1)[0], fourLinesOfTriangle[0]);
+    assert.deepEqual(pascals.findTriangle(1).length, 1);
+
+    assert.deepEqual(pascals.findTriangle(2)[1], fourLinesOfTriangle[1]);
+    assert.deepEqual(pascals.findTriangle(2).length, 2);
+
+    assert.deepEqual(pascals.findTriangle(3)[2], fourLinesOfTriangle[2]);
+    assert.deepEqual(pascals.findTriangle(3).length, 3);
+
+    assert.deepEqual(pascals.findTriangle(4)[3], fourLinesOfTriangle[3]);
+    assert.deepEqual(pascals.findTriangle(4).length, 4);
+  });
+
+  it('should find out N lines of pascals triangle', function() {
+    var fourLinesOfTriangle = [
+      [1],
+      [1,1],
+      [1,2,1],
+      [1,3,3,1],
+      [1,4,6,4,1]
+    ];
+
+    assert.deepEqual(pascals.findTriangleRecursive(1)[0], fourLinesOfTriangle[0]);
+    assert.deepEqual(pascals.findTriangleRecursive(1).length, 1);
+
+    assert.deepEqual(pascals.findTriangleRecursive(2)[1], fourLinesOfTriangle[1]);
+    assert.deepEqual(pascals.findTriangleRecursive(2).length, 2);
+
+    assert.deepEqual(pascals.findTriangleRecursive(3)[2], fourLinesOfTriangle[2]);
+    assert.deepEqual(pascals.findTriangleRecursive(3).length, 3);
+
+    assert.deepEqual(pascals.findTriangleRecursive(4)[3], fourLinesOfTriangle[3]);
+    assert.deepEqual(pascals.findTriangleRecursive(4).length, 4);
+  });
+
+});
+
+
+/* Max Diff */
+
+describe('Max Diff', function() {
+  it('should return the max diff of the largest number and the smallest number in index order', function() {
+    assert.deepEqual(maxDiff.maxDiffOf([2,3,10,2,4,8,1]), 8);
+    assert.deepEqual(maxDiff.maxDiffOf([7,9,5,6,3,2]), 2);
+    assert.deepEqual(maxDiff.maxDiffOf([12,9,5,10,3,2]), 5);
+  });
+
+  it('should return -1 if no max diff', function() {
+    assert.deepEqual(maxDiff.maxDiffOf([]), -1);
+  });
 });
