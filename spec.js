@@ -118,9 +118,15 @@ describe('Max Diff', function() {
     assert.deepEqual(maxDiff.maxDiffOf([2,3,10,2,4,8,1]), 8);
     assert.deepEqual(maxDiff.maxDiffOf([7,9,5,6,3,2]), 2);
     assert.deepEqual(maxDiff.maxDiffOf([12,9,5,10,3,2]), 5);
+    assert.deepEqual(maxDiff.maxDiffOf([2,3,10,2,4,8,1,3,13]), 12);
+    assert.deepEqual(maxDiff.maxDiffOf([2,3,4,5,4,3,2,1,2,3,4,5,6,7]), 6);
+    assert.deepEqual(maxDiff.maxDiffOf([1,2,3,4,3,5]), 4);
   });
 
   it('should return -1 if no max diff', function() {
     assert.deepEqual(maxDiff.maxDiffOf([]), -1);
+    assert.deepEqual(maxDiff.maxDiffOf([2]), -1);
+    assert.deepEqual(maxDiff.maxDiffOf([4,4,4,4,4]), -1);
+    assert.deepEqual(maxDiff.maxDiffOf([10,9,8,7]), -1);
   });
 });
